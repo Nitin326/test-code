@@ -1,0 +1,52 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.register_page{
+    margin-bottom:3rem;
+}
+
+.register_form{
+    text-align: center;
+}
+
+.register_text{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 5%;
+    margin-bottom:1rem;
+}
+
+.register_form .input_field{
+    width: 90%;
+    margin: 0.5rem;
+}
+
+.btn{
+    width: 90%;
+    margin-top: 1rem;
+    justify-content: center;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    outline: none;
+    border: none;
+    background-color: #1e232c;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.back_arrow{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .register_page{
+        margin-top: 30%;
+    }  
+}

@@ -1,0 +1,52 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.homepage{
+  text-align: center;
+}
+
+.home_image{
+    margin-top: 5%;
+}
+
+.homepage .text{
+   text-align: center;
+   font-weight: bold;
+   font-size: 2rem;
+}
+
+.homepage .btn{
+    width: 90%;
+    justify-content: center;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    outline: none;
+    border: none;
+    background-color: #0d99ff;
+    border-radius: 2rem;
+}
+
+.homepage .login_text{
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.homepage .login_text a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+    .homepage{
+        margin-top: 25%;
+    }
+    .home_content{
+        margin-top: 35%;
+    }
+}

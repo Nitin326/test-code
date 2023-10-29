@@ -1,0 +1,40 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.user_profile_container{
+    margin-top: 5%;
+}
+
+.user_profile_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_profile_details{
+    text-align: center;
+}
+
+.user_profile_details .user_name{
+    margin: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.user_profile_details .user_email{
+    margin: 5px;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.596);
+}
+
+@media screen and (max-width: 500px) {
+    .user_profile_container{
+        margin-top: 25%;
+    }
+    .user_profile_details .user_name{
+        margin-top: 15px;
+    }
+}

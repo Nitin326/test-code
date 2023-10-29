@@ -1,0 +1,62 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.expance_container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.expance_form .input_field {
+    width: 90%;
+    margin: 0.5rem;
+}
+
+.select {
+    padding: 16px 10px;
+    font: inherit;
+    color: #74808e;
+    letter-spacing: inherit;
+    border: 1px solid #74808e94;
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.select:hover {
+    border: 1px solid black;
+}
+
+
+.expance_form .input_field:focus-visible {
+    border: none;
+    outline: 2px solid blueviolet;
+    background-color: white;
+}
+
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #74808e;
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+.back_arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .expance_container {
+        margin-top: 25%;
+    }
+}

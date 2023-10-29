@@ -1,0 +1,24 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.dashboard{
+    max-width: 100%;
+    margin: auto;
+}
+
+.chart_container{
+    background-color: rgb(248, 100, 100);
+    color: white;
+    padding: 1rem;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.bar_chart{
+    color: white;
+}
