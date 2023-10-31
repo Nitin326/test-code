@@ -1,4 +1,4 @@
-import * as React from "react";
+import React,{useState} from "react";
 import {styled} from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,6 +12,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import './Assets/appbar.css'
 
+
 const StyledFab = styled(Fab)({
   position: "absolute",
   zIndex: 1,
@@ -22,9 +23,15 @@ const StyledFab = styled(Fab)({
 });
 
 export default function BottomAppBar() {
+
+  let data = sessionStorage.getItem("token");
+
+  const [token,setToken] = useState(data)
+
+
   return (
-    <React.Fragment>
-      <AppBar
+    <>
+      { data && <AppBar
         style={{background: "white"}}
         position="fixed"
         sx={{top: "auto", bottom: 0}}
@@ -47,7 +54,7 @@ export default function BottomAppBar() {
           <a className="nav_link" href='/profile'><Person2Icon /></a>
           </IconButton>
         </Toolbar>
-      </AppBar>
-    </React.Fragment>
+      </AppBar>}
+    </>
   );
 }

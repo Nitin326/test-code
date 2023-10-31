@@ -5,20 +5,27 @@
 }
 
 .dashboard{
-    max-width: 100%;
-    margin: auto;
-}
-
-.chart_container{
-    background-color: rgb(248, 100, 100);
-    color: white;
-    padding: 1rem;
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-around;
+    position: relative;
+    flex-wrap: wrap;
 }
 
-.bar_chart{
+.dash_item{
+    background-color: rgb(162, 70, 248);
+    height: 200px;
+    width: 300px;
     color: white;
+    margin: 20px;
+}
+
+.dash_item h3{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.dash_item p{
+    text-align: center;
 }
