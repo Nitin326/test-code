@@ -13,7 +13,7 @@ const Signup = () => {
     password: ''
   })
 
-  // change the state of login data
+  // change the state of Register data
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRegisterData((prevData) => ({
@@ -21,7 +21,7 @@ const Signup = () => {
     }))
   }
 
-  // submit the login form data
+  // submit the Register form data
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(registerData);
