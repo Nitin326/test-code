@@ -9,6 +9,7 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .filter-field{
@@ -18,4 +19,19 @@
     padding: 10px 20px;
     margin: 5px;
     border-radius: 10px;
+}
+
+.payment-history{
+  margin-top: 30px;
+  display: block;
+}
+
+.payment-block{
+    background-color: rgb(113, 102, 154);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border-radius: 20px;
 }
