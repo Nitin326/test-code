@@ -1,0 +1,21 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.filter-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filter-field{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 255, 255, 0.792);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+}
