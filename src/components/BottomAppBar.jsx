@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import {styled} from "@mui/material/styles";
+import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,38 +23,32 @@ const StyledFab = styled(Fab)({
 });
 
 export default function BottomAppBar() {
-
-  let data = sessionStorage.getItem("token");
-
-  const [token,setToken] = useState(data)
-
-
   return (
     <>
-      { data && <AppBar
-        style={{background: "white"}}
+      <AppBar
+        style={{ background: "white" }}
         position="fixed"
-        sx={{top: "auto", bottom: 0}}
+        sx={{ top: "auto", bottom: 0 }}
       >
-        <Toolbar style={{display: "flex", justifyContent: "space-between"}}>
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton>
-          <a className="nav_link" href='/payment'><AccountBalanceIcon /></a>
+            <a className="nav_link" href='/payment'><AccountBalanceIcon /></a>
           </IconButton>
           <IconButton>
-          <a className="nav_link" href='/dashboard'><BarChartIcon /></a>
+            <a className="nav_link" href='/dashboard'><BarChartIcon /></a>
           </IconButton>
           <StyledFab color="#0d99ff" aria-label="add">
-          <a className="nav_link" href='/addexpance'><AddIcon /></a>
+            <a className="nav_link" href='/addexpance'><AddIcon /></a>
           </StyledFab>
-          <Box style={{margin:'20px'}}/>
+          <Box style={{ margin: '20px' }} />
           <IconButton>
-          <a className="nav_link" href='/track'><BookmarkIcon /></a>
+            <a className="nav_link" href='/track'><BookmarkIcon /></a>
           </IconButton>
           <IconButton>
-          <a className="nav_link" href='/profile'><Person2Icon /></a>
+            <a className="nav_link" href='/profile'><Person2Icon /></a>
           </IconButton>
         </Toolbar>
-      </AppBar>}
+      </AppBar>
     </>
   );
 }

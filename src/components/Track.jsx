@@ -1,8 +1,13 @@
 import React from 'react'
+import BottomAppBar from './BottomAppBar'
+
 
 const Track = () => {
   return (
-    <div>Track</div>
+    <>
+      <BottomAppBar />
+      <div>Track</div>
+    </>
   )
 }
 

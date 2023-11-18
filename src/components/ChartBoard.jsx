@@ -1,10 +1,11 @@
 import React from "react";
 import "./Assets/charts.css";
-
+import BottomAppBar from './BottomAppBar'
 
 const ChartBoard = () => {
   return (
     <>
+      <BottomAppBar />
       <div className="dashboard">
         <div className="dash_item">
           <h3>Food</h3>

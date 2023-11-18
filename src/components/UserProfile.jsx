@@ -1,11 +1,13 @@
 import React from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import './Assets/profile.css';
+import BottomAppBar from './BottomAppBar'
 
 
 const UserProfile = () => {
   return (
     <>
+      <BottomAppBar />
       <div className='back_arrow'>
         <a href='/'><ArrowBackIosNewIcon /></a>
       </div>

@@ -2,8 +2,6 @@ import React from 'react'
 import Money from './Assets/Images/money.jpg'
 import './Assets/home.css'
 
-
-
 const Home = () => {
   return (
     <div className='homepage'>

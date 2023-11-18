@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import './Assets/register.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import axios from 'axios';
 
 const Signup = () => {
 
   const [registerData, setRegisterData] = useState({
     fname: '',
     lname: '',
-    number: '',
+    phone: '',
     email: '',
     password: ''
   })
@@ -22,9 +23,18 @@ const Signup = () => {
   }
 
   // submit the Register form data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(registerData);
+    const payload = registerData;
+    console.log(payload);
+    try {
+      const url = 'http://localhost:5000/user/create';
+      const response = await axios.post(url, payload);
+      // Handle the response
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   return (
@@ -35,49 +45,49 @@ const Signup = () => {
       <div className='register_page'>
         <p className='register_text'>Hello! Register to get Started </p>
         <div className='register_form'>
-          <form method='POST' onSubmit={handleSubmit}>
+          <form method='POST' onSubmit={handleSubmit} autoComplete="off">
             <TextField
               className='input_field'
               id="outlined-fname-input"
               label="First Name"
               type="text"
-              value = {registerData.fname}
+              value={registerData.fname}
               onChange={handleChange}
-              name = 'fname'
+              name='fname'
             />
             <TextField
               className='input_field'
               id="outlined-lname-input"
               label="Last Name"
               type="text"
-              value = {registerData.lname}
+              value={registerData.lname}
               onChange={handleChange}
-              name = 'lname'
+              name='lname'
             />
             <TextField
               className='input_field'
               id="outlined-phone-input"
-              label="Phone"
+              label="Phone Number"
               type="text"
-              value = {registerData.number}
+              value={registerData.phone}
               onChange={handleChange}
-              name = 'number'
+              name='phone'
             />
             <TextField
               className='input_field'
               id="outlined-email-input"
               label="Email"
               type="text"
-              value = {registerData.email}
+              value={registerData.email}
               onChange={handleChange}
-              name = 'email'
+              name='email'
             />
             <TextField
               className='input_field'
               id="outlined-password-input"
               label="password"
               type="password"
-              value = {registerData.password}
+              value={registerData.password}
               onChange={handleChange}
               name='password'
             />

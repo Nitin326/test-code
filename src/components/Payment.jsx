@@ -1,8 +1,12 @@
 import React from 'react'
+import BottomAppBar from './BottomAppBar'
 
 const Payment = () => {
   return (
-    <div>Payment</div>
+    <>
+      <BottomAppBar />
+      <div>Payment</div>
+    </>
   )
 }
 

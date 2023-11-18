@@ -1,5 +1,4 @@
 import "./App.css";
-import BottomAppBar from "./components/BottomAppBar";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Nopage from "./components/Nopage";
 import Payment from "./components/Payment";
@@ -14,7 +13,6 @@ import AddExpance from "./components/AddExpance";
 function App() {
   return (
     <div>
-      <BottomAppBar />
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />

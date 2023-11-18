@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import './Assets/login.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
+  const navigate = useNavigate();
+
+
   const [loginData, setLoginData] = useState({
-    number: '',
+    phone: '',
     password: ''
   })
 
@@ -19,11 +24,23 @@ const Login = () => {
   }
 
   // submit the login form data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(loginData);
+    const payload = loginData;
+    console.log(payload);
+    try {
+      const url = 'http://localhost:5000/user/login';
+      const response = await axios.post(url, payload);
+      // set session storage
+      sessionStorage.setItem("token", response.data.token);
+      // Handle the response
+      console.log('Response:', response.data);
+      // render on profile page
+      navigate("/profile");
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
-
 
   return (
     <>
@@ -33,15 +50,15 @@ const Login = () => {
       <div className='login_page'>
         <p className='login_text'>Welcome back! Glad to see you, Again! </p>
         <div className='login_form'>
-          <form method='POST' onSubmit={handleSubmit}>
+          <form method='POST' onSubmit={handleSubmit} autoComplete="off">
             <TextField
               className='input_field'
               id="outlined-phone-input"
               label="Phone Number"
-              value={loginData.number}
+              value={loginData.phone}
               onChange={handleChange}
               type="text"
-              name="number"
+              name="phone"
             />
             <TextField
               className='input_field'
