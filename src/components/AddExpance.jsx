@@ -27,8 +27,8 @@ const AddExpance = () => {
         e.preventDefault();
         const payload = expanceData;
         const token = sessionStorage.getItem('token');
-        console.log(payload);
         payload.amount = parseInt(payload.amount)
+        console.log(payload);
         try {
             const url = 'http://localhost:5000/expanse';
             const response = await axios.post(url, payload, {

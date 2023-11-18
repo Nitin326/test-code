@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.filter-box{
+.filter-box {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -12,7 +12,7 @@
     margin-top: 20px;
 }
 
-.filter-field{
+.filter-field {
     font-size: 18px;
     font-weight: bold;
     background-color: rgba(0, 255, 255, 0.792);
@@ -21,17 +21,28 @@
     border-radius: 10px;
 }
 
-.payment-history{
-  margin-top: 30px;
-  display: block;
+.payment-history {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: block;
+    font-weight: 500;
 }
 
-.payment-block{
+.payment-block {
     background-color: rgb(113, 102, 154);
-    width: 90%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
     margin: 10px auto;
     border-radius: 20px;
+}
+
+.filter-icon{
+    margin-left:5px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
 }
