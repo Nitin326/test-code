@@ -3,8 +3,11 @@ import TextField from '@mui/material/TextField';
 import './Assets/expance.css';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const AddExpance = () => {
+
+    const navigate = useNavigate();
 
     const [expanceData, setExpanceData] = useState({
         amount: 0,
@@ -28,16 +31,15 @@ const AddExpance = () => {
         const payload = expanceData;
         const token = sessionStorage.getItem('token');
         payload.amount = parseInt(payload.amount)
-        console.log(payload);
         try {
             const url = 'http://localhost:5000/expanse';
-            const response = await axios.post(url, payload, {
+            await axios.post(url, payload, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
             });
-            // Handle the response
-            console.log('Response:', response.data);
+            // navigate to payment page
+            navigate("/payment");
         } catch (error) {
             console.error('Error:', error);
         }
@@ -46,7 +48,7 @@ const AddExpance = () => {
     return (
         <>
             <div className='back_arrow'>
-                <a href='/'><ArrowBackIosNewIcon /></a>
+                <a href='/payment'><ArrowBackIosNewIcon /></a>
             </div>
             <div className='expance_container'>
                 <form className='expance_form' method='POST' onSubmit={handleSubmit} >
@@ -69,7 +71,7 @@ const AddExpance = () => {
                         onChange={handleChange}
                     />
                     <select className='select input_field' name='category' onChange={handleChange}>
-                        <option value="" disabled defaultValue='Choose Category'>Choose Category</option>
+                        <option value="">Choose Category</option>
                         <option value="Food">Food</option>
                         <option value="Transportation">Transportation</option>
                         <option value="Entertainment">Entertainment</option>
@@ -85,7 +87,7 @@ const AddExpance = () => {
                         onChange={handleChange}
                     />
                     <select className='select input_field' name='mode' onChange={handleChange}>
-                        <option value="method" disabled >Choose Payment Method</option>
+                        <option value="">Choose Payment Method</option>
                         <option value="Phonepay">Phone Pay</option>
                         <option value="Gpay">Google Pay</option>
                         <option value="Amazonpay">Amazon Pay</option>

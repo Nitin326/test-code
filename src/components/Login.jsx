@@ -9,7 +9,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-
   const [loginData, setLoginData] = useState({
     phone: '',
     password: ''
@@ -27,14 +26,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = loginData;
-    console.log(payload);
     try {
       const url = 'http://localhost:5000/user/login';
       const response = await axios.post(url, payload);
       // set session storage
       sessionStorage.setItem("token", response.data.token);
-      // Handle the response
-      console.log('Response:', response.data);
       // render on profile page
       navigate("/profile");
     } catch (error) {
@@ -69,7 +65,7 @@ const Login = () => {
               type="password"
               name="password"
             />
-            <button type='submit' className='btn'>Login</button>\
+            <button type='submit' className='btn'>Login</button>
           </form>
         </div>
       </div>

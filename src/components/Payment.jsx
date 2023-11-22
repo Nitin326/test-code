@@ -7,24 +7,32 @@ import StyleIcon from './Assets/Images/style.svg'
 import TravelIcon from './Assets/Images/travel.svg';
 import './Assets/payment.css'
 import axios from 'axios'
-
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Payment = () => {
 
   const [payments, setPayments] = useState([]);
   const [filterQuery, setFilterQuery] = useState('');
+  const [hasMore, setHasMore] = useState(true);
+  let [page, setPage] = useState(1);
 
   const fetchData = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const url = `http://localhost:5000/expanse?${filterQuery}=${filterQuery}`;
+      const url = `http://localhost:5000/expanse?${filterQuery}=${filterQuery}&page=${page}`;
       const response = await axios.get(url, {
         headers: {
           'Authorization': 'Bearer ' + token
         }
       });
-      // set the state
-      setPayments(response.data.data)
+
+      // Check if there is more data
+      if (response.data.data.length === 0) {
+        setHasMore(false);
+      }
+
+      // Update the state with the new data
+      setPayments([...payments, ...response.data.data]);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -32,11 +40,22 @@ const Payment = () => {
 
   useEffect(() => {
     fetchData()
-  }, [payments])
+    // eslint-disable-next-line
+  }, [filterQuery])
 
   const setFilter = (value) => {
+    page = 1;
+    setPage(page)
+    setPayments([])
     setFilterQuery(value)
   }
+
+  const loadMoreData = () => {
+    // Fetch more data when scrolling to the end
+    page = page + 1;
+    setPage(page);
+    fetchData();
+  };
 
   return (
     <>
@@ -72,20 +91,31 @@ const Payment = () => {
             <img src={OtherIcon} className='filter-icon' alt="food icon" height='20px' width='20px' />
           </div>
         </div>
+        <div className='filter-field' onClick={() => setFilter("")}>
+          <div className='filter-container'>
+            <span>All</span>
+          </div>
+        </div>
       </div>
-      <div className='payment-history'>
-        {
-          payments.map((item, index) => {
-            return (
-              <div key={index} className='payment-block'>
-                <div>{item.category}</div>
-                <div>{item.date}</div>
-                <div>{item.amount}</div>
-              </div>
-            )
-          })
-        }
-      </div>
+      <InfiniteScroll
+        dataLength={payments.length}
+        next={loadMoreData}
+        hasMore={hasMore}
+      >
+        <div className='payment-history'>
+          {
+            payments.map((item, index) => {
+              return (
+                <div key={index} className='payment-block'>
+                  <div>{item.category}</div>
+                  <div>{item.date}</div>
+                  <div>{item.amount}</div>
+                </div>
+              )
+            })
+          }
+        </div>
+      </InfiniteScroll>
     </>
   )
 }

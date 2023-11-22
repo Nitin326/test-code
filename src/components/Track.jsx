@@ -6,7 +6,7 @@ const Track = () => {
   return (
     <>
       <BottomAppBar />
-      <div>Track</div>
+      <div style={{ textAlign: 'center', fontSize: '25px', fontWeight: '500', marginTop: '100px' }}>Track Comming Soon</div>
     </>
   )
 }

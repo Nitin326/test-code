@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,7 +12,6 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import './Assets/appbar.css'
-
 
 const StyledFab = styled(Fab)({
   position: "absolute",
@@ -32,20 +32,20 @@ export default function BottomAppBar() {
       >
         <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton>
-            <a className="nav_link" href='/payment'><AccountBalanceIcon /></a>
+            <Link to="/payment" className="nav_link"><AccountBalanceIcon /></Link>
           </IconButton>
           <IconButton>
-            <a className="nav_link" href='/dashboard'><BarChartIcon /></a>
+            <Link to="/dashboard" className="nav_link"><BarChartIcon /></Link>
           </IconButton>
           <StyledFab color="#0d99ff" aria-label="add">
-            <a className="nav_link" href='/addexpance'><AddIcon /></a>
+            <Link to="/addexpance" className="nav_link"><AddIcon /></Link>
           </StyledFab>
           <Box style={{ margin: '20px' }} />
           <IconButton>
-            <a className="nav_link" href='/track'><BookmarkIcon /></a>
+            <Link to="/track" className="nav_link"><BookmarkIcon /></Link>
           </IconButton>
           <IconButton>
-            <a className="nav_link" href='/profile'><Person2Icon /></a>
+            <Link to="/profile" className="nav_link"><Person2Icon /></Link>
           </IconButton>
         </Toolbar>
       </AppBar>

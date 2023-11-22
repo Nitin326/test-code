@@ -3,8 +3,11 @@ import TextField from '@mui/material/TextField';
 import './Assets/register.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+
+  const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
     fname: '',
@@ -26,12 +29,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = registerData;
-    console.log(payload);
     try {
       const url = 'http://localhost:5000/user/create';
-      const response = await axios.post(url, payload);
-      // Handle the response
-      console.log('Response:', response.data);
+      await axios.post(url, payload);
+      navigate('/login')
     } catch (error) {
       console.error('Error:', error);
     }
