@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     const payload = loginData;
     try {
-      const url = 'http://localhost:5000/user/login';
+      const url = process.env.REACT_APP_BACKEND_URL + `/user/login`;
       const response = await axios.post(url, payload);
       // set session storage
       sessionStorage.setItem("token", response.data.token);

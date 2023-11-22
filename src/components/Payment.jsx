@@ -19,7 +19,7 @@ const Payment = () => {
   const fetchData = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const url = `http://localhost:5000/expanse?${filterQuery}=${filterQuery}&page=${page}`;
+      const url = process.env.REACT_APP_BACKEND_URL + `/expanse?${filterQuery}=${filterQuery}&page=${page}`;
       const response = await axios.get(url, {
         headers: {
           'Authorization': 'Bearer ' + token

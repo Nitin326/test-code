@@ -11,7 +11,7 @@ const UserProfile = () => {
   const fetchData = async () => {
     try {
       const token = sessionStorage.getItem('token');
-      const url = `http://localhost:5000/dashboard/profile`;
+      const url = process.env.REACT_APP_BACKEND_URL + `/dashboard/profile`;
       const response = await axios.get(url, {
         headers: {
           'Authorization': 'Bearer ' + token

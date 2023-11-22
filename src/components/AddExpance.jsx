@@ -32,7 +32,7 @@ const AddExpance = () => {
         const token = sessionStorage.getItem('token');
         payload.amount = parseInt(payload.amount)
         try {
-            const url = 'http://localhost:5000/expanse';
+            const url = process.env.REACT_APP_BACKEND_URL + '/expanse';
             await axios.post(url, payload, {
                 headers: {
                     'Authorization': 'Bearer ' + token

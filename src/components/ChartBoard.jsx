@@ -51,7 +51,7 @@ const ChartBoard = () => {
       const year = dateObject.getFullYear();
       const date = dateObject.getDate();
       const token = sessionStorage.getItem('token');
-      const url = `http://localhost:5000/dashboard/month?date=${date}-${month}-${year}`;
+      const url = process.env.REACT_APP_BACKEND_URL + `/dashboard/month?date=${date}-${month}-${year}`;
       const response = await axios.get(url, {
         headers: {
           'Authorization': 'Bearer ' + token

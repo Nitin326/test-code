@@ -30,7 +30,7 @@ const Signup = () => {
     e.preventDefault();
     const payload = registerData;
     try {
-      const url = 'http://localhost:5000/user/create';
+      const url = process.env.REACT_APP_BACKEND_URL + `/user/create`;
       await axios.post(url, payload);
       navigate('/login')
     } catch (error) {
