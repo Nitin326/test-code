@@ -4,6 +4,8 @@ import './Assets/login.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -32,7 +34,10 @@ const Login = () => {
       // set session storage
       sessionStorage.setItem("token", response.data.token);
       // render on profile page
-      navigate("/profile");
+      toast.success(response.message);
+      setTimeout(() => {
+        navigate('/profile')
+      }, 3000)
     } catch (error) {
       console.error('Error:', error);
     }
@@ -43,6 +48,7 @@ const Login = () => {
       <div className='back_arrow'>
         <a href='/'><ArrowBackIosNewIcon /></a>
       </div>
+      <ToastContainer theme="dark" />
       <div className='login_page'>
         <p className='login_text'>Welcome back! Glad to see you, Again! </p>
         <div className='login_form'>

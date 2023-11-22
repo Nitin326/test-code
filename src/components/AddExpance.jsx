@@ -4,6 +4,8 @@ import './Assets/expance.css';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddExpance = () => {
 
@@ -33,15 +35,18 @@ const AddExpance = () => {
         payload.amount = parseInt(payload.amount)
         try {
             const url = process.env.REACT_APP_BACKEND_URL + '/expanse';
-            await axios.post(url, payload, {
+            const response = await axios.post(url, payload, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
             });
             // navigate to payment page
-            navigate("/payment");
+            toast.success(response.data.message);
+            setTimeout(() => {
+                navigate("/payment");
+            }, 3000)
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error:', error.message);
         }
     }
 
@@ -50,6 +55,7 @@ const AddExpance = () => {
             <div className='back_arrow'>
                 <a href='/payment'><ArrowBackIosNewIcon /></a>
             </div>
+            <ToastContainer theme="dark" />
             <div className='expance_container'>
                 <form className='expance_form' method='POST' onSubmit={handleSubmit} >
                     <TextField

@@ -4,6 +4,8 @@ import './Assets/register.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
 
@@ -31,8 +33,12 @@ const Signup = () => {
     const payload = registerData;
     try {
       const url = process.env.REACT_APP_BACKEND_URL + `/user/create`;
-      await axios.post(url, payload);
-      navigate('/login')
+      const response = await axios.post(url, payload);
+      console.log(response);
+      toast.success(response.message);
+      setTimeout(() => {
+        navigate('/login')
+      }, 3000)
     } catch (error) {
       console.error('Error:', error);
     }
@@ -43,6 +49,7 @@ const Signup = () => {
       <div className='back_arrow'>
         <a href='/'><ArrowBackIosNewIcon /></a>
       </div>
+      <ToastContainer theme="dark" />
       <div className='register_page'>
         <p className='register_text'>Hello! Register to get Started </p>
         <div className='register_form'>
